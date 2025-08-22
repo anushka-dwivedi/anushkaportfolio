@@ -2,41 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Modern Portfolio Design System - Tech-inspired dark theme with accent colors */
 
 @layer base {
   :root {
+    /* Light mode colors */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
-
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
-
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
-
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --ring: 217 91% 60%;
+    
+    /* Custom Portfolio Colors */
+    --portfolio-bg: 0 0% 100%;
+    --portfolio-surface: 0 0% 98%;
+    --portfolio-accent: 217 91% 60%;
+    --portfolio-accent-light: 196 93% 67%;
+    --portfolio-text: 222.2 84% 4.9%;
+    --portfolio-text-muted: 215.4 16.3% 46.9%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(196 93% 67%));
+    --gradient-surface: linear-gradient(145deg, hsl(0 0% 100%), hsl(0 0% 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(196 93% 67% / 0.05));
+    
+    /* Shadows */
+    --shadow-primary: 0 4px 20px hsl(217 91% 60% / 0.15);
+    --shadow-card: 0 2px 10px hsl(0 0% 0% / 0.05);
+    --shadow-elevated: 0 8px 30px hsl(0 0% 0% / 0.1);
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,33 +65,44 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 223 47% 4%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 223 47% 6%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 223 47% 6%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
-
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 50%;
     --destructive-foreground: 210 40% 98%;
-
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --ring: 217 91% 60%;
+    
+    /* Dark mode portfolio colors */
+    --portfolio-bg: 223 47% 4%;
+    --portfolio-surface: 223 47% 6%;
+    --portfolio-accent: 217 91% 60%;
+    --portfolio-accent-light: 196 93% 67%;
+    --portfolio-text: 210 40% 98%;
+    --portfolio-text-muted: 215 20.2% 65.1%;
+    
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(196 93% 67%));
+    --gradient-surface: linear-gradient(145deg, hsl(223 47% 6%), hsl(223 47% 8%));
+    --gradient-hero: linear-gradient(135deg, hsl(217 91% 60% / 0.1), hsl(196 93% 67% / 0.05));
+    
+    /* Dark mode shadows */
+    --shadow-primary: 0 4px 20px hsl(217 91% 60% / 0.25);
+    --shadow-card: 0 2px 10px hsl(0 0% 0% / 0.3);
+    --shadow-elevated: 0 8px 30px hsl(0 0% 0% / 0.4);
+    
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +120,47 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-portfolio-bg text-portfolio-text;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .portfolio-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .portfolio-surface {
+    background: var(--gradient-surface);
+  }
+  
+  .portfolio-shadow {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .portfolio-shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+  
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .portfolio-card {
+    @apply portfolio-surface portfolio-shadow rounded-[var(--radius)] p-6 border border-border/50 transition-all duration-300;
+  }
+  
+  .portfolio-card:hover {
+    @apply portfolio-shadow-elevated transform translate-y-[-2px];
   }
 }
