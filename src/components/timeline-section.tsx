@@ -38,15 +38,6 @@ const TimelineSection = () => {
       icon: Trophy,
       type: "achievement"
     },
-    {
-      id: 5,
-      year: "Ongoing",
-      title: "Hackathons & Competitions",
-      subtitle: "Multiple Participations",
-      description: "Active participation in coding competitions including Coding Ninjas Premier League (AIR 294) and various hackathons.",
-      icon: Trophy,
-      type: "achievement"
-    }
   ];
 
   const getIconColor = (type: string) => {
