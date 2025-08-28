@@ -55,7 +55,7 @@ const HeroSection = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
       {/* Ultra-modern layered background */}
       <div className="absolute inset-0 bg-gradient-to-br from-portfolio-accent/20 via-portfolio-accent-light/10 to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-portfolio-accent/5 to-portfolio-accent-light/15"></div>
