@@ -3,8 +3,8 @@ import { GraduationCap, MapPin, Calendar } from "lucide-react";
 const AboutSection = () => {
   return (
     <section id="about" className="py-20 bg-portfolio-surface">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 portfolio-gradient bg-clip-text text-transparent">
@@ -15,14 +15,14 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Bio Content */}
             <div className="animate-slide-in">
-              <h3 className="text-2xl font-semibold mb-6 text-portfolio-text">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-portfolio-text">
                 My Story
               </h3>
               
-              <div className="space-y-4 text-portfolio-text-muted leading-relaxed">
+              <div className="space-y-3 sm:space-y-4 text-portfolio-text-muted leading-relaxed text-sm sm:text-base">
                 <p>
                   I am a passionate final-year engineering student specializing in front-end development, 
                   with experience in building responsive websites and a keen interest in full-stack 
@@ -46,7 +46,7 @@ const AboutSection = () => {
 
             {/* Education & Info Cards */}
             <div className="animate-slide-in delay-200">
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {/* Education Card */}
                 <div className="portfolio-card">
                   <div className="flex items-start space-x-4">

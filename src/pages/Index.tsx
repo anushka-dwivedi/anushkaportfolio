@@ -5,6 +5,7 @@ import SkillsSection from "@/components/skills-section";
 import ProjectsSection from "@/components/projects-section";
 import TimelineSection from "@/components/timeline-section";
 import AchievementsSection from "@/components/achievements-section";
+import CertificatesSection from "@/components/certificates-section";
 import ContactSection from "@/components/contact-section";
 
 const Index = () => {
@@ -15,10 +16,11 @@ const Index = () => {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
-        <ProjectsSection />
-        <TimelineSection />
-        <AchievementsSection />
-        <ContactSection />
+      <ProjectsSection />
+      <TimelineSection />
+      <AchievementsSection />
+      <CertificatesSection />
+      <ContactSection />
       </main>
       
       {/* Footer */}

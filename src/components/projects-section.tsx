@@ -33,7 +33,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects" className="py-20 bg-portfolio-surface">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16 animate-fade-up">
@@ -69,17 +69,18 @@ const ProjectsSection = () => {
                       </div>
                     </div>
                     
-                    {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-portfolio-accent/90 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                      <div className="text-center">
-                        <h3 className="text-white font-semibold text-xl mb-4">
+                    {/* Enhanced interactive overlay on hover */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-portfolio-accent/95 to-portfolio-accent-light/95 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center backdrop-blur-sm">
+                      <div className="text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 className="text-white font-semibold text-lg sm:text-xl mb-4 px-4">
                           {project.title}
                         </h3>
-                        <div className="flex space-x-4">
+                        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4">
                           <Button
                             onClick={() => handleLiveProject(project.liveUrl)}
                             variant="outline"
-                            className="border-white text-white hover:bg-white hover:text-portfolio-accent"
+                            size="sm"
+                            className="border-white text-white hover:bg-white hover:text-portfolio-accent transition-all duration-300 hover:scale-105"
                           >
                             <ExternalLink className="w-4 h-4 mr-2" />
                             Live Demo
@@ -87,7 +88,8 @@ const ProjectsSection = () => {
                           <Button
                             onClick={() => handleGithubProject(project.githubUrl)}
                             variant="outline"
-                            className="border-white text-white hover:bg-white hover:text-portfolio-accent"
+                            size="sm"
+                            className="border-white text-white hover:bg-white hover:text-portfolio-accent transition-all duration-300 hover:scale-105"
                           >
                             <Github className="w-4 h-4 mr-2" />
                             Code
@@ -127,11 +129,11 @@ const ProjectsSection = () => {
                       </div>
                     </div>
 
-                    {/* Action Buttons */}
-                    <div className="flex space-x-4 pt-4">
+                    {/* Enhanced responsive Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                       <Button
                         onClick={() => handleLiveProject(project.liveUrl)}
-                        className="portfolio-gradient hover:opacity-90"
+                        className="portfolio-gradient hover:opacity-90 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg w-full sm:w-auto"
                       >
                         <ExternalLink className="w-4 h-4 mr-2" />
                         View Live Project
@@ -139,7 +141,7 @@ const ProjectsSection = () => {
                       <Button
                         onClick={() => handleGithubProject(project.githubUrl)}
                         variant="outline"
-                        className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
+                        className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg w-full sm:w-auto"
                       >
                         <Github className="w-4 h-4 mr-2" />
                         View Code
