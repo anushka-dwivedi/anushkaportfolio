@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, MapPin, Linkedin, Github, Send, Sparkles, MessageCircle, Heart } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -66,31 +66,17 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 relative overflow-hidden">
-      {/* Enhanced background */}
-      <div className="absolute inset-0 bg-gradient-to-bl from-portfolio-accent/5 via-transparent to-portfolio-accent-light/5"></div>
-      <div className="absolute top-20 left-20 w-80 h-80 bg-portfolio-accent/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-20 w-96 h-96 bg-portfolio-accent-light/10 rounded-full blur-3xl animate-pulse delay-700"></div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-7xl mx-auto">
-          {/* Enhanced Section Header */}
-          <div className="text-center mb-20 animate-fade-up">
-            <div className="inline-flex items-center space-x-3 mb-6">
-              <MessageCircle className="w-8 h-8 text-portfolio-accent animate-bounce" />
-              <h2 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-portfolio-accent via-portfolio-accent-light to-portfolio-accent bg-clip-text text-transparent">
-                Let's Connect
-              </h2>
-              <Heart className="w-8 h-8 text-portfolio-accent-light animate-pulse" />
-            </div>
-            <p className="text-portfolio-text-muted text-xl max-w-3xl mx-auto leading-relaxed">
-              Ready to discuss opportunities, collaborate on projects, or just have a friendly chat
+    <section id="contact" className="py-20">
+      <div className="container mx-auto px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16 animate-fade-up">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 portfolio-gradient bg-clip-text text-transparent">
+              Let's Connect
+            </h2>
+            <p className="text-portfolio-text-muted text-lg">
+              Ready to discuss opportunities or collaborate on projects
             </p>
-            <div className="mt-6 flex justify-center space-x-2">
-              <Sparkles className="w-5 h-5 text-portfolio-accent animate-pulse" />
-              <span className="text-portfolio-accent font-medium">Open to new opportunities</span>
-              <Sparkles className="w-5 h-5 text-portfolio-accent-light animate-pulse delay-300" />
-            </div>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
