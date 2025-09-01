@@ -121,16 +121,7 @@ const HeroSection = () => {
           </p>
 
           {/* Ultra-modern responsive Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
-            <Button onClick={handleDownloadResume} size="lg" className="portfolio-gradient hover:opacity-90 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto min-w-[200px] hover:-translate-y-1">
-              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              Download Resume
-            </Button>
-            
-            <Button onClick={scrollToAbout} variant="outline" size="lg" className="border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white transition-all duration-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium backdrop-blur-sm bg-white/5 w-full sm:w-auto min-w-[200px] hover:-translate-y-1 hover:shadow-lg">
-              Learn More About Me
-            </Button>
-          </div>
+          
 
           {/* Ultra-modern Scroll indicator */}
           <div className="animate-bounce hidden sm:block">
