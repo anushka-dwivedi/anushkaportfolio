@@ -4,15 +4,6 @@ import { Button } from "@/components/ui/button";
 const CertificatesSection = () => {
   const certificates = [
     {
-      id: 1,
-      title: "International Yoga Day 2024 - Certificate of Pledge",
-      organization: "Dr. A.P.J. Abdul Kalam Technical University, Lucknow",
-      date: "15-Jun-2024",
-      description: "Participated in Yoga for Harmony & Peace initiative, taking a pledge to imbibe yoga as a lifestyle by practicing it regularly.",
-      image: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZjNmNGY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2MzY2NzMiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkNlcnRpZmljYXRlIEltYWdlPC90ZXh0Pgo8L3N2Zz4K",
-      category: "Wellness & Personal Development"
-    },
-    {
       id: 2,
       title: "Web Development Training Certificate",
       organization: "Softpro India",
