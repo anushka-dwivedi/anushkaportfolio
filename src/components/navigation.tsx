@@ -36,11 +36,21 @@ const Navigation = () => {
   };
 
   const handleDownloadResume = () => {
-    // This will create a download link for resume.pdf
-    const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Anushka_Dwivedi_Resume.pdf';
-    link.click();
+    // Check if resume exists first
+    fetch('/resume.pdf', { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          const link = document.createElement('a');
+          link.href = '/resume.pdf';
+          link.download = 'Anushka_Dwivedi_Resume.pdf';
+          link.click();
+        } else {
+          alert('Resume not available yet. Please contact me for my latest resume!');
+        }
+      })
+      .catch(() => {
+        alert('Resume not available yet. Please contact me for my latest resume!');
+      });
   };
 
   return (
