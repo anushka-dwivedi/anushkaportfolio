@@ -25,6 +25,7 @@ const Navigation = () => {
     { label: "Certificates", href: "#certificates" },
     { label: "Timeline", href: "#timeline" },
     { label: "Contact", href: "#contact" },
+    { label: "Resume", href: "#resume" },
   ];
 
   const scrollToSection = (href: string) => {
