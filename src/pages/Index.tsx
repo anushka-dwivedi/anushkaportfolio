@@ -7,7 +7,6 @@ import TimelineSection from "@/components/timeline-section";
 import AchievementsSection from "@/components/achievements-section";
 import CertificatesSection from "@/components/certificates-section";
 import ContactSection from "@/components/contact-section";
-import ResumeSection from "@/components/resume-section";
 
 const Index = () => {
   return (
@@ -22,7 +21,6 @@ const Index = () => {
       <AchievementsSection />
       <CertificatesSection />
       <ContactSection />
-      <ResumeSection />
       </main>
       
       {/* Footer */}

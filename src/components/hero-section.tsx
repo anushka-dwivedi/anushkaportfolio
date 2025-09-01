@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, ArrowDown, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Download, ArrowDown, Sparkles, Eye, FileText } from "lucide-react";
 
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
@@ -45,6 +46,10 @@ const HeroSection = () => {
     link.href = '/resume.pdf';
     link.download = 'Anushka_Dwivedi_Resume.pdf';
     link.click();
+  };
+
+  const handleViewResume = () => {
+    window.open('/resume.pdf', '_blank');
   };
 
   const scrollToAbout = () => {
@@ -134,17 +139,44 @@ const HeroSection = () => {
             exploring <span className="text-portfolio-accent-light font-medium">cutting-edge technologies</span>.
           </p>
 
-          {/* Ultra-modern responsive Action buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
-            <Button
-              onClick={handleDownloadResume}
-              size="lg"
-              className="portfolio-gradient hover:opacity-90 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto min-w-[200px] hover:-translate-y-1"
-            >
-              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
-              Download Resume
-            </Button>
-            
+          {/* Resume Card */}
+          <div className="mb-8 sm:mb-12">
+            <Card className="max-w-sm mx-auto bg-portfolio-surface/80 backdrop-blur-sm border-portfolio-accent/20 hover:border-portfolio-accent/40 transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/10">
+              <CardContent className="p-6">
+                <div className="flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 bg-portfolio-accent/10 rounded-full flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-portfolio-accent" />
+                  </div>
+                </div>
+                <h3 className="text-lg font-semibold text-center mb-2">My Resume</h3>
+                <p className="text-sm text-portfolio-text-muted text-center mb-4">
+                  Frontend Developer & Software Engineer
+                </p>
+                <div className="flex gap-2">
+                  <Button 
+                    onClick={handleViewResume}
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 border-portfolio-accent/50 text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
+                  >
+                    <Eye className="w-4 h-4 mr-2" />
+                    View
+                  </Button>
+                  <Button 
+                    onClick={handleDownloadResume}
+                    size="sm"
+                    className="flex-1 bg-portfolio-accent hover:bg-portfolio-accent/90 text-white"
+                  >
+                    <Download className="w-4 h-4 mr-2" />
+                    Download
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Ultra-modern responsive Action button */}
+          <div className="flex justify-center items-center mb-12 sm:mb-16 px-4">
             <Button
               onClick={scrollToAbout}
               variant="outline"
