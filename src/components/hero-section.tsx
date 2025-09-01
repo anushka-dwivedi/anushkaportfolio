@@ -1,24 +1,14 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Download, ArrowDown, Sparkles, Eye, FileText } from "lucide-react";
-
+import { Download, ArrowDown, Sparkles } from "lucide-react";
 const HeroSection = () => {
   const [displayText, setDisplayText] = useState("");
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
-
-  const phrases = [
-    "Aspiring Developer",
-    "Tech Enthusiast",
-    "Frontend Developer",
-    "Problem Solver"
-  ];
-
+  const phrases = ["Aspiring Developer", "Tech Enthusiast", "Frontend Developer", "Problem Solver"];
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     const currentPhrase = phrases[currentPhraseIndex];
-
     if (isTyping) {
       if (displayText.length < currentPhrase.length) {
         timeout = setTimeout(() => {
@@ -33,56 +23,27 @@ const HeroSection = () => {
           setDisplayText(displayText.substring(0, displayText.length - 1));
         }, 50);
       } else {
-        setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+        setCurrentPhraseIndex(prev => (prev + 1) % phrases.length);
         setIsTyping(true);
       }
     }
-
     return () => clearTimeout(timeout);
   }, [displayText, currentPhraseIndex, isTyping]);
-
   const handleDownloadResume = () => {
-    // Check if resume exists first
-    fetch('/resume.pdf', { method: 'HEAD' })
-      .then(response => {
-        if (response.ok) {
-          const link = document.createElement('a');
-          link.href = '/resume.pdf';
-          link.download = 'Anushka_Dwivedi_Resume.pdf';
-          link.click();
-        } else {
-          alert('Resume not available yet. Please contact me for my latest resume!');
-        }
-      })
-      .catch(() => {
-        alert('Resume not available yet. Please contact me for my latest resume!');
-      });
+    const link = document.createElement('a');
+    link.href = '/resume.pdf';
+    link.download = 'Anushka_Dwivedi_Resume.pdf';
+    link.click();
   };
-
-  const handleViewResume = () => {
-    // Check if resume exists first
-    fetch('/resume.pdf', { method: 'HEAD' })
-      .then(response => {
-        if (response.ok) {
-          window.open('/resume.pdf', '_blank');
-        } else {
-          alert('Resume not available yet. Please contact me for my latest resume!');
-        }
-      })
-      .catch(() => {
-        alert('Resume not available yet. Please contact me for my latest resume!');
-      });
-  };
-
   const scrollToAbout = () => {
     const aboutSection = document.querySelector('#about');
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      aboutSection.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
+  return <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
       {/* Ultra-modern layered background */}
       <div className="absolute inset-0 bg-gradient-to-br from-portfolio-accent/20 via-portfolio-accent-light/10 to-transparent"></div>
       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-portfolio-accent/5 to-portfolio-accent-light/15"></div>
@@ -104,17 +65,15 @@ const HeroSection = () => {
           <div className="mb-8 sm:mb-12 flex justify-center">
             <div className="relative group">
               {/* Animated outer rings */}
-              <div className="absolute -inset-6 bg-gradient-to-r from-portfolio-accent via-portfolio-accent-light to-portfolio-accent rounded-full blur-2xl opacity-40 group-hover:opacity-60 animate-spin" style={{ animationDuration: '8s' }}></div>
+              <div className="absolute -inset-6 bg-gradient-to-r from-portfolio-accent via-portfolio-accent-light to-portfolio-accent rounded-full blur-2xl opacity-40 group-hover:opacity-60 animate-spin" style={{
+              animationDuration: '8s'
+            }}></div>
               <div className="absolute -inset-4 bg-gradient-to-r from-portfolio-accent-light to-portfolio-accent rounded-full blur-xl opacity-50 group-hover:opacity-70 animate-pulse"></div>
               
               {/* Main image container with enhanced styling */}
               <div className="relative">
                 <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-52 md:h-52 lg:w-60 lg:h-60 mx-auto">
-                  <img
-                    src="/lovable-uploads/1c90c6c9-9fa9-44b5-9432-f055696d20f1.png"
-                    alt="Anushka Dwivedi - Software Engineering Student"
-                    className="w-full h-full rounded-full object-cover border-4 border-white/30 shadow-2xl transition-all duration-700 group-hover:scale-105 group-hover:shadow-3xl"
-                  />
+                  <img src="/lovable-uploads/1c90c6c9-9fa9-44b5-9432-f055696d20f1.png" alt="Anushka Dwivedi - Software Engineering Student" className="w-full h-full rounded-full object-cover border-4 border-white/30 shadow-2xl transition-all duration-700 group-hover:scale-105 group-hover:shadow-3xl" />
                 </div>
                 
                 {/* Enhanced decorative elements */}
@@ -161,64 +120,25 @@ const HeroSection = () => {
             exploring <span className="text-portfolio-accent-light font-medium">cutting-edge technologies</span>.
           </p>
 
-          {/* Resume Card */}
-          <div className="mb-8 sm:mb-12">
-            <Card className="max-w-sm mx-auto bg-portfolio-surface/80 backdrop-blur-sm border-portfolio-accent/20 hover:border-portfolio-accent/40 transition-all duration-300 hover:shadow-lg hover:shadow-portfolio-accent/10">
-              <CardContent className="p-6">
-                <div className="flex items-center justify-center mb-4">
-                  <div className="w-12 h-12 bg-portfolio-accent/10 rounded-full flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-portfolio-accent" />
-                  </div>
-                </div>
-                <h3 className="text-lg font-semibold text-center mb-2">My Resume</h3>
-                <p className="text-sm text-portfolio-text-muted text-center mb-4">
-                  Frontend Developer & Software Engineer
-                </p>
-                <div className="flex gap-2">
-                  <Button 
-                    onClick={handleViewResume}
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 border-portfolio-accent/50 text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
-                  >
-                    <Eye className="w-4 h-4 mr-2" />
-                    View
-                  </Button>
-                  <Button 
-                    onClick={handleDownloadResume}
-                    size="sm"
-                    className="flex-1 bg-portfolio-accent hover:bg-portfolio-accent/90 text-white"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Download
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Ultra-modern responsive Action button */}
-          <div className="flex justify-center items-center mb-12 sm:mb-16 px-4">
-            <Button
-              onClick={scrollToAbout}
-              variant="outline"
-              size="lg"
-              className="border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white transition-all duration-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium backdrop-blur-sm bg-white/5 w-full sm:w-auto min-w-[200px] hover:-translate-y-1 hover:shadow-lg"
-            >
+          {/* Ultra-modern responsive Action buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-12 sm:mb-16 px-4">
+            <Button onClick={handleDownloadResume} size="lg" className="portfolio-gradient hover:opacity-90 transition-all duration-500 shadow-xl hover:shadow-2xl transform hover:scale-105 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold w-full sm:w-auto min-w-[200px] hover:-translate-y-1">
+              <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
+              Download Resume
+            </Button>
+            
+            <Button onClick={scrollToAbout} variant="outline" size="lg" className="border-2 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white transition-all duration-500 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-medium backdrop-blur-sm bg-white/5 w-full sm:w-auto min-w-[200px] hover:-translate-y-1 hover:shadow-lg">
               Learn More About Me
             </Button>
           </div>
 
           {/* Ultra-modern Scroll indicator */}
           <div className="animate-bounce hidden sm:block">
-            <button 
-              onClick={scrollToAbout}
-              className="text-portfolio-text-muted hover:text-portfolio-accent transition-all duration-300 group"
-            >
+            <button onClick={scrollToAbout} className="text-portfolio-text-muted hover:text-portfolio-accent transition-all duration-300 group">
               <div className="flex flex-col items-center space-y-2">
                 <span className="text-xs sm:text-sm font-medium opacity-60 group-hover:opacity-100">Scroll to explore</span>
                 <div className="relative">
-                  <ArrowDown className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-y-1 transition-transform" />
+                  
                   <div className="absolute inset-0 bg-portfolio-accent/20 rounded-full blur-sm group-hover:bg-portfolio-accent/40 transition-all"></div>
                 </div>
               </div>
@@ -236,8 +156,6 @@ const HeroSection = () => {
       {/* Mobile-specific floating elements */}
       <div className="sm:hidden absolute top-10 right-4 w-8 h-8 bg-portfolio-accent/20 rounded-full blur-md animate-pulse"></div>
       <div className="sm:hidden absolute bottom-20 left-4 w-12 h-12 bg-portfolio-accent-light/15 rounded-full blur-lg animate-pulse delay-700"></div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
