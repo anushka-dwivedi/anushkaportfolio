@@ -29,15 +29,6 @@ const TimelineSection = () => {
       icon: BookOpen,
       type: "training"
     },
-    {
-      id: 4,
-      year: "2024",
-      title: "Smart India Hackathon",
-      subtitle: "College Level Selection",
-      description: "Successfully selected at college level for the prestigious Smart India Hackathon competition.",
-      icon: Trophy,
-      type: "achievement"
-    },
   ];
 
   const getIconColor = (type: string) => {
