@@ -31,8 +31,8 @@ const HeroSection = () => {
   }, [displayText, currentPhraseIndex, isTyping]);
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
-    link.download = 'Anushka_Dwivedi_Resume.pdf';
+    link.href = '/lovable-uploads/50d80157-3da7-41ac-9421-dc4ddba51200.png';
+    link.download = 'Anushka_Dwivedi_Resume.png';
     link.click();
   };
   const scrollToAbout = () => {
@@ -120,8 +120,52 @@ const HeroSection = () => {
             exploring <span className="text-portfolio-accent-light font-medium">cutting-edge technologies</span>.
           </p>
 
-          {/* Ultra-modern responsive Action buttons */}
-          
+          {/* Ultra-modern Resume Preview Box */}
+          <div className="mb-8 sm:mb-12">
+            <div className="max-w-md mx-auto bg-portfolio-surface/50 backdrop-blur-sm border border-portfolio-accent/20 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300 group">
+              <div className="text-center mb-4">
+                <h3 className="text-lg font-semibold text-portfolio-text mb-2">My Resume</h3>
+                <p className="text-sm text-portfolio-text-muted">Click to view or download</p>
+              </div>
+              
+              {/* Resume Preview */}
+              <div 
+                className="relative cursor-pointer mb-4 overflow-hidden rounded-lg border-2 border-portfolio-accent/30 hover:border-portfolio-accent/60 transition-all duration-300"
+                onClick={handleDownloadResume}
+              >
+                <img 
+                  src="/lovable-uploads/50d80157-3da7-41ac-9421-dc4ddba51200.png" 
+                  alt="Anushka Dwivedi Resume Preview" 
+                  className="w-full h-auto transform group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-portfolio-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="bg-portfolio-accent/90 text-white px-4 py-2 rounded-full text-sm font-medium">
+                    Click to Download
+                  </div>
+                </div>
+              </div>
+              
+              {/* Action Buttons */}
+              <div className="flex gap-3">
+                <Button
+                  onClick={handleDownloadResume}
+                  className="flex-1 bg-portfolio-accent hover:bg-portfolio-accent/90 text-white"
+                  size="sm"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download
+                </Button>
+                <Button
+                  onClick={handleDownloadResume}
+                  variant="outline"
+                  className="flex-1 border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
+                  size="sm"
+                >
+                  View Resume
+                </Button>
+              </div>
+            </div>
+          </div>
 
           {/* Ultra-modern Scroll indicator */}
           <div className="animate-bounce hidden sm:block">
