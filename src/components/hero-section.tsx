@@ -6,7 +6,6 @@ const HeroSection = () => {
   const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
   const phrases = ["Aspiring Developer", "Tech Enthusiast", "Frontend Developer", "Problem Solver"];
-
   const handleDownloadResume = () => {
     const link = document.createElement('a');
     link.href = '/lovable-uploads/50d80157-3da7-41ac-9421-dc4ddba51200.png';
@@ -122,15 +121,7 @@ const HeroSection = () => {
           </p>
 
           {/* Resume Download Button */}
-          <div className="mb-8 sm:mb-12">
-            <Button
-              onClick={handleDownloadResume}
-              className="bg-portfolio-accent hover:bg-portfolio-accent/90 text-white px-6 py-3 text-lg font-medium"
-            >
-              <Download className="w-5 h-5 mr-2" />
-              Download Resume
-            </Button>
-          </div>
+          
 
           {/* Ultra-modern Scroll indicator */}
           <div className="animate-bounce hidden sm:block">
