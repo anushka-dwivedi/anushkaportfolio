@@ -68,52 +68,15 @@ const Navigation = () => {
 
           {/* Action Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {/* Resume Preview Popover */}
-            <div className="relative group">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Resume
-              </Button>
-              
-              {/* Resume Preview Box - appears on hover */}
-              <div className="absolute top-full right-0 mt-2 w-72 bg-portfolio-surface border border-portfolio-accent/20 rounded-2xl p-4 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                <div className="text-center mb-3">
-                  <h3 className="text-sm font-semibold text-portfolio-text mb-1">My Resume</h3>
-                  <p className="text-xs text-portfolio-text-muted">Click to download</p>
-                </div>
-                
-                {/* Resume Preview */}
-                <div 
-                  className="relative cursor-pointer mb-3 overflow-hidden rounded-lg border border-portfolio-accent/30 hover:border-portfolio-accent/60 transition-all duration-300"
-                  onClick={handleDownloadResume}
-                >
-                  <img 
-                    src="/lovable-uploads/50d80157-3da7-41ac-9421-dc4ddba51200.png" 
-                    alt="Anushka Dwivedi Resume Preview" 
-                    className="w-full h-auto transform hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-portfolio-accent/10 opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="bg-portfolio-accent/90 text-white px-3 py-1 rounded-full text-xs font-medium">
-                      Click to Download
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Action Buttons */}
-                <Button
-                  onClick={handleDownloadResume}
-                  className="w-full bg-portfolio-accent hover:bg-portfolio-accent/90 text-white"
-                  size="sm"
-                >
-                  <Download className="w-3 h-3 mr-2" />
-                  Download Resume
-                </Button>
-              </div>
-            </div>
+            <Button
+              onClick={handleDownloadResume}
+              variant="outline"
+              size="sm"
+              className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white"
+            >
+              <Download className="w-4 h-4 mr-2" />
+              Resume
+            </Button>
             
             <Button
               variant="ghost"
@@ -154,18 +117,15 @@ const Navigation = () => {
               ))}
               
               <div className="flex items-center space-x-3 pt-3 border-t border-border">
-                {/* Resume Preview for Mobile */}
-                <div className="relative group flex-1">
-                  <Button
-                    onClick={handleDownloadResume}
-                    variant="outline"
-                    size="sm"
-                    className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white w-full"
-                  >
-                    <Download className="w-4 h-4 mr-2" />
-                    Resume
-                  </Button>
-                </div>
+                <Button
+                  onClick={handleDownloadResume}
+                  variant="outline"
+                  size="sm"
+                  className="border-portfolio-accent text-portfolio-accent hover:bg-portfolio-accent hover:text-white flex-1"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Resume
+                </Button>
                 
                 <Button
                   variant="ghost"
